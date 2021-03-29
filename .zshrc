@@ -15,6 +15,7 @@ PROMPT="%F{white}%(?..[%F{red}%?%F{white}])[%F{yellow}%*%F{white}] %F{green}%n@%
 
 alias ls="ls -G"
 alias l="ls -laG"
+alias c="code ."
 
 setopt AUTO_CD
 
