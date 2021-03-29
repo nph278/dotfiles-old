@@ -11,13 +11,14 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-PROMPT="%F{white}%(?..[%F{red}%?%F{white}])[%F{yellow}%*%F{white}] %F{green}%n@%m%F{white} %F{red}%~%F{white} "
+PROMPT='%F{white}%(?..[%F{red}%?%F{white}])[%F{yellow}%*%F{white}] %F{green}%n@%m%F{white} %F{red}%~%F{white}:%F{magenta}$([[ -d ./.git ]] && git branch --show-current)%F{white} '
 
 alias ls="ls -G"
 alias l="ls -laG"
 alias c="code ."
 
 setopt AUTO_CD
+setopt PROMPT_SUBST
 
 bindkey -v
 
