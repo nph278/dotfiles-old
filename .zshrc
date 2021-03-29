@@ -11,12 +11,12 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-PROMPT="%F{white}%(?..[%F{red}%?%F{white}])[%F{yellow}%+%F{white}] %F{green}%n@%m%F{white} %F{ref}%~%F{white} "
+PROMPT="%F{white}%(?..[%F{red}%?%F{white}])[%F{yellow}%*%F{white}] %F{green}%n@%m%F{white} %F{red}%~%F{white} "
 
-alias ls="ls --color"
-alias l="ls -la --color"
+alias ls="ls -G"
+alias l="ls -laG"
 
 setopt AUTO_CD
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-syntax-highighting/zsh-syntax-highighting.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
