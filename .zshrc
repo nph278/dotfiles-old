@@ -19,5 +19,7 @@ alias c="code ."
 
 setopt AUTO_CD
 
+bindkey -v
+
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
