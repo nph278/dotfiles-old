@@ -16,6 +16,7 @@ PROMPT='%F{white}%(?..%F{red}%?%F{white} )%F{yellow}%*%F{white} %F{green}%n@%m%F
 alias ls="ls -G"
 alias l="ls -laG"
 alias c="code ."
+alias vim="nvim"
 
 setopt AUTO_CD
 setopt PROMPT_SUBST
