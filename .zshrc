@@ -17,6 +17,9 @@ alias ls="ls -G"
 alias l="ls -laG"
 alias c="code ."
 alias vim="nvim"
+alias ga="git add -A"
+alias gc="git commit -m"
+alias gp="git push origin"
 
 setopt AUTO_CD
 setopt PROMPT_SUBST
