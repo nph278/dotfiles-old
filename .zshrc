@@ -13,6 +13,20 @@ compinit
 
 PROMPT='%F{white}%(?..%F{red}%?%F{white} )%F{yellow}%*%F{white} %F{green}%n@%m%F{white} %F{red}%~%F{white}$([[ -d ./.git ]] && printf ":")%F{magenta}$([[ -d ./.git ]] && git branch --show-current)%F{white} '
 
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+
+zle -N zle-keymap-select
+
 alias ls="ls -G"
 alias l="ls -laG"
 alias c="code ."
