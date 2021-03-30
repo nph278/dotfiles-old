@@ -26,6 +26,8 @@ function zle-keymap-select {
 }
 
 zle -N zle-keymap-select
+echo -ne '\e[5 q'
+preexec() { echo -ne '\e[5 q' ;}
 
 alias ls="ls -G"
 alias l="ls -laG"
