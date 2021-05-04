@@ -215,4 +215,6 @@ bar {
     }
 }
 
+font pango:Fira Mono Normal 11
+
 include /etc/sway/config.d/*
