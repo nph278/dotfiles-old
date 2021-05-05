@@ -21,6 +21,9 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
+# Screenshot
+set $screenshot grimshot save screen
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -65,6 +68,9 @@ input * {
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+
+    # Take a screenshot
+    bindsym $mod+Shift+S exec $screenshot
 
     # Kill focused window
     bindsym $mod+Shift+q kill
