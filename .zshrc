@@ -29,8 +29,8 @@ zle -N zle-keymap-select
 echo -ne '\e[5 q'
 preexec() { echo -ne '\e[5 q' ;}
 
-alias ls="ls -G"
-alias l="ls -laG"
+alias ls="ls --color"
+alias l="ls -la"
 alias c="code ."
 alias vim="nvim"
 alias ga="git add -A"
