@@ -23,6 +23,7 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 # Screenshot
 set $screenshot grimshot save screen
+set $screenshot_active grimshot save active
 
 ### Output configuration
 #
@@ -71,6 +72,7 @@ input * {
 
     # Take a screenshot
     bindsym $mod+Shift+S exec $screenshot
+    bindsym $mod+Shift+W exec $screenshot_active
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -207,24 +209,11 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position bottom
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while "date +'%A %B %e %l:%M:%S %p ' | sed 's/  / /g'"; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #323232 #323232 #5c5c5c
-    }
-
-    status_padding 0
-}
 
 font pango:Fira Mono Normal 11
 
 gaps inner 5
 
 include /etc/sway/config.d/*
+exec waybar
+
