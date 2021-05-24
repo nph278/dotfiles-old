@@ -68,11 +68,13 @@
     },
     "cpu": {
         "format": "{usage}% ",
-        "tooltip": false
+        "tooltip": false,
+        "on-click": "alacritty --command bpytop"
     },
     "memory": {
         "format": "{percentage}% {used:0.1f}G ",
-        "interval": 2
+        "interval": 2,
+        "on-click": "alacritty --command htop"
     },
     "temperature": {
         // "thermal-zone": 2,
