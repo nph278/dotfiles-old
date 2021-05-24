@@ -83,6 +83,23 @@ window#waybar.chromium {
     padding: 0 10px;
     margin: 0 4px;
     color: #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#language,
+#mpd {
     border-bottom: 3px white solid;
 }
 
