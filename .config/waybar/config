@@ -9,7 +9,7 @@
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
-        "format": "{icon}",
+        "format": "{name} {icon}",
         "format-icons": {
             "1": "",
             "2": "",
@@ -129,7 +129,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "alacritty --command pulsemixer"
     },
     "custom/media": {
         "format": "{icon} {}",
