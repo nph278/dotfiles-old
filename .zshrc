@@ -37,6 +37,7 @@ alias ga="git add -A"
 alias gc="git commit -m"
 alias gp="git push origin"
 alias gg="git log --graph --pretty=oneline --abbrev-commit"
+alias gl="git log --graph --pretty=short"
 
 setopt AUTO_CD
 setopt PROMPT_SUBST
