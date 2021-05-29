@@ -50,5 +50,11 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
 nnoremap <C-e> :NERDTreeToggle<CR>
+
+autocmd BufWritePost ** Format
+
 
