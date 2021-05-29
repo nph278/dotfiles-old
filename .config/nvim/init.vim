@@ -38,6 +38,7 @@ let g:coc_global_extensions = [
   \ 'coc-sh',
   \ 'coc-rls',
   \ 'coc-clangd',
+  \ 'coc-git',
   \ ]
 
 colorscheme onedark
@@ -57,4 +58,6 @@ endfunction
 command! -nargs=0 Format :call CocAction('format')
 
 nnoremap <C-e> :NERDTreeToggle<CR>
+nmap <F2> <Plug>(coc-rename)
+
 
