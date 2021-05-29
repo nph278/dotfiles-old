@@ -49,3 +49,8 @@ bindkey -v
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+if [[ $TERM == 'alacritty' ]] &&
+  [[ -f /usr/bin/pfetch ]]; then
+  pfetch
+fi
