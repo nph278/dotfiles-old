@@ -33,6 +33,9 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'junegunn/fzf'
+  Plug 'junegunn/fzf.vim'
 call plug#end()
 
 let g:coc_global_extensions = [
@@ -57,6 +60,9 @@ let g:coc_global_extensions = [
 
 colorscheme onedark
 
+vmap ++ <plug>NERDCommenterToggle
+nmap ++ <plug>NERDCommenterToggle
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -76,6 +82,8 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 nnoremap <C-e> :NERDTreeToggle<CR>
+nnoremap <C-p> :FZF<CR>
+
 nmap <F2> <Plug>(coc-rename)
 
 " Use `[g` and `]g` to navigate diagnostics
@@ -87,5 +95,4 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
 
