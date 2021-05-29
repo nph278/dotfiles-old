@@ -30,6 +30,7 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 	Plug 'preservim/nerdtree'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'evanleck/vim-svelte', {'branch': 'main'}
+  Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 let g:coc_global_extensions = [
