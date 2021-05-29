@@ -50,6 +50,7 @@ let g:coc_global_extensions = [
   \ 'coc-clangd',
   \ 'coc-git',
   \ 'coc-vimlsp',
+  \ 'coc-css',
   \ ]
 
 colorscheme onedark
