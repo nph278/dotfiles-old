@@ -35,6 +35,9 @@ let g:coc_global_extensions = [
   \ 'coc-prettier', 
   \ 'coc-json', 
   \ 'coc-svelte', 
+  \ 'coc-sh',
+  \ 'coc-rls',
+  \ 'coc-clangd',
   \ ]
 
 colorscheme onedark
@@ -54,7 +57,4 @@ endfunction
 command! -nargs=0 Format :call CocAction('format')
 
 nnoremap <C-e> :NERDTreeToggle<CR>
-
-autocmd BufWritePost ** Format
-
 
