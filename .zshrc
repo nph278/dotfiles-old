@@ -31,13 +31,16 @@ preexec() { echo -ne '\e[5 q' ;}
 
 alias ls="ls --color"
 alias l="ls -la"
-alias c="code ."
 alias vim="nvim"
 alias ga="git add -A"
 alias gc="git commit -m"
 alias gp="git push origin"
 alias gg="git log --graph --pretty=oneline --abbrev-commit"
 alias gl="git log --graph --pretty=short"
+
+pacmanclean() {
+  sudo pacman -R $(sudo pacman -Qtd | awk '{print $1}' | tr '\n' ' ')
+}
 
 setopt AUTO_CD
 setopt PROMPT_SUBST
