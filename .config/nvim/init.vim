@@ -32,6 +32,9 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
   Plug 'evanleck/vim-svelte', {'branch': 'main'}
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'HerringtonDarkholme/yats.vim'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 let g:coc_global_extensions = [
