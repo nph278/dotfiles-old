@@ -4,6 +4,11 @@ set cindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set hidden
+set nobackup
+set nowritebackup
+set cmdheight=2
+set updatetime=300
 
 syntax on
 
