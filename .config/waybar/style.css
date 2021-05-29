@@ -148,11 +148,11 @@ label:focus {
 }
 
 #cpu {
-    color: #2ecc71;
+    color: #98c379;
 }
 
 #memory {
-    color: #9b59b6;
+    color: #c678dd;
 }
 
 #disk {
@@ -164,15 +164,15 @@ label:focus {
 }
 
 #network {
-    color: #2980b9;
+    color: #61afef;
 }
 
 #network.disconnected {
-    color: #f53c3c;
+    color: #e06c75;
 }
 
 #pulseaudio {
-    color: #f1c40f;
+    color: #e5c07b;
 }
 
 #temperature {
@@ -180,7 +180,7 @@ label:focus {
 }
 
 #temperature.critical {
-    color: #eb4d4b;
+    color: #e06c75;
 }
 
 #tray {
