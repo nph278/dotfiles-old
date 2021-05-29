@@ -1,6 +1,8 @@
 cp .zshrc ~/.zshrc
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions --depth=1
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting --depth=1
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 rm -rf ~/.config/alacritty
 rm -rf ~/.config/sway
 rm -rf ~/.config/waybar
