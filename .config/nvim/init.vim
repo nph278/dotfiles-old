@@ -36,6 +36,7 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
   Plug 'scrooloose/nerdcommenter'
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
+  Plug 'pangloss/vim-javascript'
 call plug#end()
 
 let g:coc_global_extensions = [
