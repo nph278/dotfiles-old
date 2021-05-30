@@ -60,8 +60,8 @@ let g:coc_global_extensions = [
 
 colorscheme onedark
 
-vmap ++ <plug>NERDCommenterToggle
-nmap ++ <plug>NERDCommenterToggle
+vmap + <plug>NERDCommenterToggle
+nmap + <plug>NERDCommenterToggle
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
