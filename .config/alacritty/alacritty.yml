@@ -37,3 +37,9 @@ colors:
     cyan:       '#56b6c2'
     white:      '#828997' # mono-2
 
+window:
+  padding:
+    x: 5
+    y: 5
+
+
