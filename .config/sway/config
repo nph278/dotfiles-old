@@ -82,6 +82,7 @@ input * {
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $mod+Escape exec 'ps -u $USER -o pid,%mem,comm | sort -b -k2 -r | sed -n \'1!p\' | dmenu -i -l 15'
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
