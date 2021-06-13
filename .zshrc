@@ -37,6 +37,7 @@ alias gc="git commit -m"
 alias gp="git push origin"
 alias gg="git log --graph --pretty=oneline --abbrev-commit"
 alias gl="git log --graph --pretty=short"
+alias db="gdb -tui"
 
 pacmanclean() {
   sudo pacman -R $(sudo pacman -Qtd | awk '{print $1}' | tr '\n' ' ')
