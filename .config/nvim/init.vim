@@ -7,8 +7,11 @@ set expandtab
 set hidden
 set nobackup
 set nowritebackup
-set cmdheight=2
+set cmdheight=1
 set updatetime=300
+set noshowmode
+set noruler
+set noshowcmd
 
 syntax on
 
@@ -36,6 +39,7 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'pangloss/vim-javascript'
+  Plug 'itchyny/lightline.vim'
 call plug#end()
 
 let g:coc_global_extensions = [
@@ -57,6 +61,8 @@ let g:coc_global_extensions = [
   \ 'coc-toml',
   \ 'coc-python',
   \ ]
+
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 colorscheme onedark
 
@@ -99,4 +105,16 @@ nmap <silent> gr <Plug>(coc-references)
 " transperent bg
 hi Normal guibg=NONE ctermbg=NONE
 
+let g:lightline = {
+	\ 'colorscheme': 'one',
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste' ],
+	\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+	\ },
+	\ 'component_function': {
+	\   'cocstatus': 'coc#status'
+	\ },
+	\ }
+
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
