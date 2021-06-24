@@ -18,15 +18,14 @@ read swap
 
 # Partition disk
 
-parted "/dev/$disk" -s "mklabel gpt \
-  mkpart primary 512MiB -${swap}GiB
-  mkpart primary -${swap}GiB 100%
-  mkpart ESP fat32 1MiB 512MiB
-  set 3 esp on
-  name 1 crypt-btrfs
-  name 2 crypt-swap
-  name 3 efi
-  "
+parted "/dev/$disk" -- "mklabel gpt"
+parted "/dev/$disk" -- "mkpart ESP fat32 1MiB 1GiB"
+parted "/dev/$disk" -- "set 1 esp on"
+parted "/dev/$disk" -- "mkpart primary 1GiB ${swap+1}GiB"
+parted "/dev/$disk" -- "mkpart primary ${swap+1}GiB 100%"
+parted "/dev/$disk" -- "name 1 efi"
+parted "/dev/$disk" -- "name 2 crypt-swap"
+parted "/dev/$disk" -- "name 3 crypt-btrfs"
 
 # Shorthands
 
