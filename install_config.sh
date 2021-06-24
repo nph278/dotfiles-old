@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Installs dotfiles
 
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions --depth=1
