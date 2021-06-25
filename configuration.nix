@@ -14,7 +14,7 @@
     efiSupport = true;
     useOSProber = true;
     version = 2;
-  }
+  };
 
   # Time Zone
   time.timeZone = "America/New_York";
@@ -26,14 +26,14 @@
     useDHCP = false;
     intrerfaces.%%INTERFACE%%.useDHCP = true;
     firewall.enable = false;
-  }
+  };
 
   # i18n
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
-  }
+  };
 
   # Printing
   services.printing.enable = true;
@@ -48,7 +48,7 @@
     extraGroups = [ "wheel" ];
     name = "Carl";
     shell = pkgs.zsh;
-  }
+  };
 
   # Packages
   environment.systemPackages = with pkgs; [
@@ -64,20 +64,20 @@
     waybar
     minecraft
     zsh
-  ]
+  ];
 
   # SUID Wrappers
   programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-  }
+  };
 
   # SwayWM
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
-  }
+  };
 
   # Version
   system.stateVersion = "21.05";
