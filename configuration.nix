@@ -46,7 +46,6 @@
   users.users.carl = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    name = "Carl";
     shell = pkgs.zsh;
   };
 
@@ -62,7 +61,6 @@
     feh
     fira-mono
     waybar
-    minecraft
     zsh
   ];
 
