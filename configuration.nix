@@ -24,7 +24,7 @@
     hostName = "%%HOSTNAME%%";
     wireless.enable = %%WIRELESS%%;
     useDHCP = false;
-    intrerfaces.%%INTERFACE%%.useDHCP = true;
+    interfaces.%%INTERFACE%%.useDHCP = true;
     firewall.enable = false;
   };
 
