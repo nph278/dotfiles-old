@@ -106,7 +106,7 @@ cp -vr . /mnt/home/carl/Projects/dotfiles
 
 # Run enter script
 
-nixos-enter /mnt -c /home/carl/Projects/enter.sh
+nixos-enter --root /mnt -c /home/carl/Projects/enter.sh
 
 echo "Installation complete!"
 
