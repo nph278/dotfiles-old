@@ -21,7 +21,7 @@
 
   # Networking
   networking = {
-    hostname = "%%HOSTNAME%%";
+    hostName = "%%HOSTNAME%%";
     wireless.enable = %%WIRELESS%%;
     useDHCP = false;
     intrerfaces.%%INTERFACE%%.useDHCP = true;
