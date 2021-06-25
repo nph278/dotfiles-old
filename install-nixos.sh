@@ -73,9 +73,15 @@ mount $efi /mnt/boot
 # Create NixOS config
 
 nixos-generate-config --root /mnt
-# cp ./configuration.nix /mnt/etc/nixos/configuration.nix
+cp ./configuration.nix /mnt/etc/nixos/configuration.nix
 
 # Install!
 
-# nixos-install
+nixos-install
+
+# Create directories in home folder
+mkdir /mnt/home/carl/{Pictures,Projects,Music,Blender,Downloads,Documents,VBoxShared,VBoxVMs}
+
+# Copy dotfiles
+cp -vr . /mnt/home/carl/Projects/dotfiles
 

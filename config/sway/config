@@ -19,13 +19,17 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+
+set $bemenu_options = '--fn \'Fira Mono 11\' -b --tb \#61afef --tf \#282c34 --nf \#61afef --nb \#282c34 --sb \#61afef --sf \#282c34 --hb \#61afef --hf \#282c34 --scb \#282c34 --scf \#abb2bf --fb \#282c34 --ff \#abb2bf' 
+
+set $menu bemenu-run '$bemenu_options'
+
 
 # Screenshot
 set $screenshot grimshot save screen
 set $screenshot_active grimshot save active
 
-set $kill kill -15 "$(ps -u $USER -o pid,%mem,comm | sort -b -k2 -r | sed -n '1!p' | dmenu -i -l 15 | awk '{print $1}')"
+set $kill kill -15 "$(ps -u $USER -o pid,%mem,comm | sort -b -k2 -r | sed -n '1!p' | bemenu $bemenu_options -i -l 15 | awk '{print $1}')"
 
 ### Output configuration
 #
