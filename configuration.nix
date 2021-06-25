@@ -9,7 +9,7 @@
   # Use GRUB Bootloader
   boot.loader.grub = {
     enable = true;
-    enableCryptoDisk = true;
+    enableCryptodisk = true;
     device = "nodev";
     efiSupport = true;
     useOSProber = true;
