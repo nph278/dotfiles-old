@@ -9,15 +9,31 @@ fi
 
 # Get disk device
 
+lsblk
 printf "Enter disk device: /dev/"
 read disk
 
 # Get swap amount
+grep MemTotal /proc/meminfo
 printf "Swap amount (In GiB): "
 read swap
 
+# Get hostname
+printf "Hostname: "
+read hostname
+
+# Get net interface
+ifconfig
+printf "Net interface: "
+read interface
+
+# Get wireless
+printf "Wireless support (true/false): "
+read wireless
+
 # Partition disk
 
+echo "Partitioning disks..."
 parted "/dev/$disk" -- "mklabel gpt"
 parted "/dev/$disk" -- "mkpart ESP fat32 1MiB 1GiB"
 parted "/dev/$disk" -- "set 1 esp on"
@@ -74,6 +90,9 @@ mount $efi /mnt/boot
 
 nixos-generate-config --root /mnt
 cp ./configuration.nix /mnt/etc/nixos/configuration.nix
+sed -i s/%%HOSTNAME%%/$hostname/ /mnt/etc/nixos/configuration.nix
+sed -i s/%%INTERFACE%%/$interface/ /mnt/etc/nixos/configuration.nix
+sed -i s/%%WIRELESS%%/$wireless/ /mnt/etc/nixos/configuration.nix
 
 # Install!
 
@@ -84,4 +103,10 @@ mkdir /mnt/home/carl/{Pictures,Projects,Music,Blender,Downloads,Documents,VBoxSh
 
 # Copy dotfiles
 cp -vr . /mnt/home/carl/Projects/dotfiles
+
+# Run enter script
+
+nixos-enter /mnt -c /home/carl/Projects/enter.sh
+
+echo "Installation complete!"
 
