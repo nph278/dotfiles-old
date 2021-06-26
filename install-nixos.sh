@@ -93,6 +93,9 @@ cp ./configuration.nix /mnt/etc/nixos/configuration.nix
 sed -i s/%%HOSTNAME%%/$hostname/ /mnt/etc/nixos/configuration.nix
 sed -i s/%%INTERFACE%%/$interface/ /mnt/etc/nixos/configuration.nix
 sed -i s/%%WIRELESS%%/$wireless/ /mnt/etc/nixos/configuration.nix
+grep -v boot.initrd.luks /mnt/etc/nixos/hardware-configuration.nix > tmpfile
+cp tmpfile /mnt/etc/nixos/hardware-configuration.nix
+rm tmpfile
 
 # Install!
 
