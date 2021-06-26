@@ -7,13 +7,9 @@
     ];
 
   # Use GRUB Bootloader
-  boot.loader.grub = {
+  boot.loader.systemd-boot = {
     enable = true;
-    enableCryptodisk = true;
-    device = "nodev";
-    efiSupport = true;
-    useOSProber = true;
-    version = 2;
+    editor = true;
   };
 
   boot.initrd.luks.devices = {
@@ -75,6 +71,7 @@
     fira-mono
     waybar
     zsh
+    git
   ];
 
   # SUID Wrappers
