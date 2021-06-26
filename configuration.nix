@@ -16,6 +16,19 @@
     version = 2;
   };
 
+  boot.initrd.luks.devices = {
+    btrfs = {
+      name = "btrfs";
+      device = "/dev/disk/by-partlabel/crypt-btrfs";
+      preLVM = true;
+    };
+    swap = {
+      name = "swap";
+      device = "/dev/disk/by-partlabel/crypt-swap";
+      preLVM = true;
+    };
+  ];
+
   # Time Zone
   time.timeZone = "America/New_York";
 
