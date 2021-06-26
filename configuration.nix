@@ -25,7 +25,7 @@
       device = "/dev/disk/by-partlabel/crypt-swap";
       preLVM = true;
     };
-  ];
+  };
 
   # Time Zone
   time.timeZone = "America/New_York";
