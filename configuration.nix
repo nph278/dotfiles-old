@@ -6,11 +6,13 @@
       ./hardware-configuration.nix
     ];
 
-  # Use GRUB Bootloader
+  # Bootloader
   boot.loader.systemd-boot = {
     enable = true;
     editor = true;
   };
+
+  boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.luks.devices = {
     btrfs = {
