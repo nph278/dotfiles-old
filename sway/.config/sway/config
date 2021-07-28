@@ -225,5 +225,4 @@ font pango:Fira Mono Normal 11
 default_border none
 
 include /etc/sway/config.d/*
-exec waybar
 
