@@ -37,6 +37,7 @@ alias gc="git commit -m"
 alias gp="git push origin"
 alias gg="git log --graph --pretty=oneline --abbrev-commit"
 alias gl="git log --graph --pretty=short"
+alias gac="git add -A && git commit -m"
 alias db="gdb -tui"
 
 pacmanclean() {
