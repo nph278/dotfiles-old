@@ -43,4 +43,8 @@ window:
     y: 5
 
 background_opacity: 0.5
+shell:
+  program: zsh
+  args:
+    - --login
 
