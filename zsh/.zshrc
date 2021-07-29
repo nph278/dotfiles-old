@@ -57,7 +57,3 @@ if [[ $TERM == 'alacritty' ]] &&
   pfetch
 fi
 
-if [[ $TERM == 'linux' ]]; then
-  export GTK_THEME=Breeze:dark
-  export QT_QPA_PLATFORMTHEME=qt5ct
-fi
