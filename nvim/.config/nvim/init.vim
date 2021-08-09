@@ -130,4 +130,6 @@ let g:lightline = {
 	\ }
 
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+let g:user_emmet_leader_key='<C-a>'
+
 
