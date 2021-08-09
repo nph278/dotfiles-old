@@ -61,6 +61,7 @@ let g:coc_global_extensions = [
   \ 'coc-html-css-support',
   \ 'coc-toml',
   \ 'coc-python',
+  \ 'coc-emmet'
   \ ]
 
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
