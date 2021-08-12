@@ -80,7 +80,7 @@
     noto-fonts
     noto-fonts-emoji
     fira-mono
-  ]
+  ];
 
   # SUID Wrappers
   programs.mtr.enable = true;
