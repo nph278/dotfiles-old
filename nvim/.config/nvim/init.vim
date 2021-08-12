@@ -115,6 +115,8 @@ nnoremap <A-7> 7gt
 nnoremap <A-8> 8gt
 nnoremap <A-9> 9gt
 
+inoremap <silent><expr> <c-space> coc#refresh()
+
 " transperent bg
 hi Normal guibg=NONE ctermbg=NONE
 
