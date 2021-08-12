@@ -57,7 +57,7 @@
   users.users.carl = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    shell = pkgs.zsh;
+    shell = pkgs.dash;
   };
 
   # Packages
