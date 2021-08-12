@@ -4,4 +4,4 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /home/carl/.z
 curl -fLo /home/carl/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 cd /home/carl/Projects/dotfiles
-./install-config.sh
+stow alacritty sway zsh nvim dash

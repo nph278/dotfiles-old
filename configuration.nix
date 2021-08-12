@@ -72,6 +72,8 @@
     feh
     zsh
     git
+    dash
+    stow
   ];
 
   fonts.fonts = with pkgs; [
