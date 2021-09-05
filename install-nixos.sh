@@ -69,6 +69,7 @@ mount $btrfs /mnt
 btrfs subvolume create /mnt/@
 btrfs subvolume create /mnt/@home
 btrfs subvolume create /mnt/@snapshots
+btrfs subvolume create /mnt/@nix
 umount /mnt
 
 # Create swap
@@ -80,9 +81,11 @@ swapon $swap
 
 mount $btrfs -o defaults,subvol=@ /mnt
 mkdir /mnt/home
+mkdir /mnt/nix
 mkdir /mnt/.snapshots
 mount $btrfs -o defaults,subvol=@home /mnt/home
 mount $btrfs -o defaults,subvol=@snapshots /mnt/.snapshots
+mount $btrfs -o defaults,subvol=@nix /mnt/nix
 mkdir /mnt/boot
 mount $efi /mnt/boot
 
@@ -102,15 +105,12 @@ rm tmpfile
 nixos-install
 
 # Create directories in home folder
-mkdir /mnt/home/carl/{Pictures,Projects,Music,Blender,Downloads,Documents,VBoxShared,VBoxVMs}
-
-# Copy dotfiles
-cp -vr . /mnt/home/carl/Projects/dotfiles
+mkdir /mnt/home/carl/{Pictures,Projects,Music,Downloads,Documents}
 
 # Run enter script
 
-nixos-enter --root /mnt -c /home/carl/Projects/dotfiles/enter.sh
+cp enter.sh /mnt/home/carl/
+nixos-enter --root /mnt -c "sudo -u carl /home/carl/enter.sh"
 
 echo "Installation complete!"
-
 

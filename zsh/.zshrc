@@ -40,6 +40,7 @@ alias gl="git log --graph --pretty=short"
 alias gac="git add -A && git commit -m"
 alias gf="git fetch"
 alias db="gdb -tui"
+alias rm="trash"
 
 pacmanclean() {
   sudo pacman -R $(sudo pacman -Qtd | awk '{print $1}' | tr '\n' ' ')

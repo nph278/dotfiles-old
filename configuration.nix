@@ -58,6 +58,11 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     shell = pkgs.dash;
+    programs = [
+      neofetch
+      htop
+      bat
+    ]
   };
 
   # Packages
@@ -66,14 +71,13 @@
     wget
     killall
     firefox
-    alacritty
-    bemenu
     mpv
     feh
     zsh
     git
     dash
     stow
+    keepassxc
   ];
 
   fonts.fonts = with pkgs; [
@@ -93,6 +97,13 @@
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
+    extraPackages = with pkgs; [
+      swaylock
+      swayidle
+      wl-clipboard
+      alacritty
+      bemenu
+    ];
   };
 
   # Version
