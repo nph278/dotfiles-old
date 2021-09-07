@@ -41,9 +41,24 @@ alias gac="git add -A && git commit -m"
 alias gf="git fetch"
 alias db="gdb -tui"
 alias rm="trash"
+alias kee="keepassxc-cli open KeePass.kbdx"
 
-pacmanclean() {
-  sudo pacman -R $(sudo pacman -Qtd | awk '{print $1}' | tr '\n' ' ')
+doas() {
+  su -c "$*"
+}
+
+clean() {
+  while pkgs=$(paru -Qtd) do
+    sudo paru -R $(paru -Qtd | awk '{print $1}' | tr '\n' ' ')
+  done
+}
+
+up() {
+  paru -Syu && paruclean
+}
+
+add() {
+  paru -S $1
 }
 
 setopt AUTO_CD
