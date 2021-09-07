@@ -43,10 +43,6 @@ alias db="gdb -tui"
 alias rm="trash"
 alias kee="keepassxc-cli open KeePass.kbdx"
 
-doas() {
-  su -c "$*"
-}
-
 clean() {
   while pkgs=$(paru -Qtd) do
     paru -R $(paru -Qtd | awk '{print $1}' | tr '\n' ' ')
