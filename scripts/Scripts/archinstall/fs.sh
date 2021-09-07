@@ -14,9 +14,9 @@ printf "Net interface: "
 read interface
 printf "Encryption Password: "
 read password
-printf "Repeat"
+printf "Repeat: "
 read password2
-if [[ "$password" != "$password2" ]] then
+if [[ "$password" != "$password2" ]]; then
   echo "Passwords do not match."
   exit 1
 fi
