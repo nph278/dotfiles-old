@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
-# Need root access
-if [[ $USER != "root" ]]; then
-  echo "Run with sudo."
-  exit 1
-fi
+
 # Get disk device
 lsblk
 printf "Enter disk device: /dev/"
@@ -45,7 +41,6 @@ mount $btrfs /mnt
 btrfs subvolume create /mnt/@
 btrfs subvolume create /mnt/@home
 btrfs subvolume create /mnt/@snapshots
-btrfs subvolume create /mnt/@nix
 umount /mnt
 
 # Create swap
@@ -55,11 +50,9 @@ swapon $swap
 
 mount $btrfs -o defaults,subvol=@ /mnt
 mkdir /mnt/home
-mkdir /mnt/nix
 mkdir /mnt/.snapshots
 mount $btrfs -o defaults,subvol=@home /mnt/home
 mount $btrfs -o defaults,subvol=@snapshots /mnt/.snapshots
-mount $btrfs -o defaults,subvol=@nix /mnt/nix
 mkdir /mnt/boot
 mount $efi /mnt/boot
 
