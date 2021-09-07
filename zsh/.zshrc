@@ -49,7 +49,7 @@ doas() {
 
 clean() {
   while pkgs=$(paru -Qtd) do
-    sudo paru -R $(paru -Qtd | awk '{print $1}' | tr '\n' ' ')
+    paru -R $(paru -Qtd | awk '{print $1}' | tr '\n' ' ')
   done
 }
 
