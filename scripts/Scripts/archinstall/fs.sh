@@ -12,14 +12,6 @@ read swap
 ip addr
 printf "Net interface: "
 read interface
-printf "Encryption Password: "
-read password
-printf "Repeat: "
-read password2
-if [[ "$password" != "$password2" ]]; then
-  echo "Passwords do not match."
-  exit 1
-fi
 # Partition disk
 echo "Partitioning disks..."
 parted "/dev/$disk" -- "mklabel gpt"
@@ -39,10 +31,10 @@ swap="/dev/mapper/swap"
 # Format ESP
 mkfs.fat -F 32 $efi
 # Encrypt partitions
-echo "YES\n$password\n$password" | cryptsetup luksFormat $cryptbtrfs
-echo "YES\n$password\n$password" | cryptsetup luksFormat $cryptswap
-echo "$password" | cryptsetup luksOpen $cryptbtrfs btrfs
-echo "$password" | cryptsetup luksOpen $cryptswap swap
+cryptsetup luksFormat $cryptbtrfs
+cryptsetup luksFormat $cryptswap
+cryptsetup luksOpen $cryptbtrfs btrfs
+cryptsetup luksOpen $cryptswap swap
 # Create btrfs partition and subvolumes
 mkfs.btrfs -f $btrfs
 mount $btrfs /mnt
