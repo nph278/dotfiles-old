@@ -34,7 +34,7 @@ set $kill kill -15 "$(ps -u $USER -o pid,%mem,comm | sort -b -k2 -r | sed -n '1!
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg '#252931' solid_color 
+output * bg ~/.wallpaper.png fill
 #
 # Example configuration:
 #

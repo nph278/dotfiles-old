@@ -41,7 +41,7 @@ alias gac="git add -A && git commit -m"
 alias gf="git fetch"
 alias db="gdb -tui"
 alias rm="trash"
-alias kee="keepassxc-cli open KeePass.kbdx"
+alias kee="keepassxc-cli open ~/KeePass.kdbx"
 
 clean() {
   while pkgs=$(paru -Qtd) do
@@ -50,7 +50,7 @@ clean() {
 }
 
 up() {
-  paru -Syu && clean
+  paru -Syu
 }
 
 add() {
