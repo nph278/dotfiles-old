@@ -59,7 +59,7 @@ mount $efi /mnt/boot
 # Pacstrap
 
 pacstrap /mnt base base-devel linux linux-firmware neovim sway firejail bemenu firefox-developer-edition alacritty git zsh dash doas htop feh mpv tealdeer
-cp enter.sh /mnt/root
+cp /root/enter.sh /mnt/root
 
 arch-chroot /mnt /root/enter.sh
 
