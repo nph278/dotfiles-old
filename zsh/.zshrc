@@ -50,11 +50,15 @@ clean() {
 }
 
 up() {
-  paru -Syu && paruclean
+  paru -Syu && clean
 }
 
 add() {
   paru -S $1
+}
+
+del() {
+  paru -R $1
 }
 
 setopt AUTO_CD
