@@ -5,7 +5,7 @@ c.url.default_page = "about:blank"
 # Other URL stuff
 
 c.url.searchengines = {
-    "DEFAULT": "https://duckduckgo.com/search?q={}"
+    "DEFAULT": "https://duckduckgo.com/?q={}"
 }
 
 # Fonts
