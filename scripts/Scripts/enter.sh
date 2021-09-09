@@ -26,6 +26,9 @@ rm -rf paru-bin
 
 cd /root
 
+sed -i 's/\#\[bin\]/[bin]/' /etc/paru.conf
+sed -i 's/\#Sudo/Sudo/' /etc/paru.conf
+
 bash
 
 

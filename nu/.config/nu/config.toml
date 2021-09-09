@@ -1,0 +1,23 @@
+startup = [
+  'alias vim = nvim',
+  'alias ga = git add -A',
+  'alias gc = git commit -m',
+  'alias gp = git push origin',
+  'alias gg = git log --graph --pretty=oneline --abbrev-commit',
+  'alias gl = git log --graph --pretty=short',
+  'alias gac = git add -A && git commit -m',
+  'alias gf = git fetch',
+  'alias db = gdb -tui',
+  'alias rm = trash',
+  'alias kee = keepassxc-cli open ~/KeePass.kdbx',
+  'alias up = paru -Syu',
+  'alias add = paru -S',
+  'alias del = paru -R',
+  'alias search = paru -Ss',
+  'pfetch',
+]
+
+rm_always_trash = true
+ctrlc_exit = false
+
+prompt = "build-string (ansi y) (date format '%I:%M:%S') (ansi reset) ' ' (ansi g) (whoami) '@' (hostname) (ansi reset) ' ' (ansi r) (pwd) (ansi reset) ' '"

@@ -58,7 +58,7 @@ mount $efi /mnt/boot
 
 # Pacstrap
 
-pacstrap /mnt base base-devel linux linux-firmware neovim sway firejail bemenu firefox-developer-edition alacritty git zsh dash doas htop feh mpv tealdeer keepassxc
+pacstrap /mnt base base-devel linux linux-firmware neovim sway firejail bemenu firefox-developer-edition alacritty git zsh dash doas htop feh mpv tealdeer keepassxc grub networkmanager pipewire
 cp /root/dotfiles-main/scripts/Scripts/enter.sh /mnt/root
 
 arch-chroot /mnt /root/enter.sh
