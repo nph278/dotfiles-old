@@ -8,7 +8,6 @@ startup = [
   'alias gac = git add -A && git commit -m',
   'alias gf = git fetch',
   'alias db = gdb -tui',
-  'alias rm = trash',
   'alias kee = keepassxc-cli open ~/KeePass.kdbx',
   'alias up = paru -Syu',
   'alias add = paru -S',
