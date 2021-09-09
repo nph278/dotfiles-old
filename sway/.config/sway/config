@@ -93,6 +93,9 @@ input * {
     # Lock
     bindsym $mod+Control+l exec "swaylock -f -c 000000"
 
+    # Qute
+    bindsym $mod+q exec "qutebrowser"
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
