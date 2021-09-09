@@ -153,6 +153,7 @@ c.content.blocking.hosts.lists = [
 ]
 c.content.blocking.method = 'auto'
 c.content.blocking.whitelist = []
+c.auto_save.session = True
 
 # Keybindings
 
