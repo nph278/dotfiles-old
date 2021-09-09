@@ -29,6 +29,8 @@ cd /root
 sed -i 's/\#\[bin\]/[bin]/' /etc/paru.conf
 sed -i 's/\#Sudo/Sudo/' /etc/paru.conf
 
+paru -S pfetch
+
 bash
 
 

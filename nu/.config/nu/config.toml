@@ -14,6 +14,10 @@ startup = [
   'alias del = paru -R',
   'alias search = paru -Ss',
   'alias bat = bat --theme ansi',
+  'alias l = ls -la',
+  'alias ll = ls -l',
+  'def lsd [] { ls | where type == Dir }',
+  'def lsf [] { ls | where type == File }',
   'pfetch',
 ]
 
@@ -21,3 +25,4 @@ rm_always_trash = true
 ctrlc_exit = false
 
 prompt = "build-string (ansi y) (date format '%I:%M:%S') (ansi reset) ' ' (ansi g) (whoami) '@' (hostname) (ansi reset) ' ' (ansi r) (pwd) (ansi reset) ' '"
+pager = "bat"
