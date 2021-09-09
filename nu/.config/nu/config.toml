@@ -14,6 +14,7 @@ startup = [
   'alias add = paru -S',
   'alias del = paru -R',
   'alias search = paru -Ss',
+  'alias bat = bat --theme ansi',
   'pfetch',
 ]
 
