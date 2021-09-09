@@ -1,12 +1,11 @@
 # Startup
 
-c.url.default_page = "http://192.168.1.243:1234"
-c.url.start_pages = "http://192.168.1.243:1234"
+c.url.default_page = "about:blank"
 
 # Other URL stuff
 
 c.url.searchengines = {
-    "DEFAULT": "http://192.168.1.243:1234/search?q={}"
+    "DEFAULT": "https://duckduckgo.com/search?q={}"
 }
 
 # Fonts
@@ -135,6 +134,25 @@ c.colors.webpage.bg = color["black"]
 # c.colors.webpage.darkmode.threshold.background = color.black
 # c.colors.webpage.darkmode.threshold.text = color.black
 c.colors.webpage.preferred_color_scheme = "dark"
+c.content.blocking.adblock.lists = [
+    'https://easylist.to/easylist/easylist.txt',
+    'https://easylist.to/easylist/easyprivacy.txt',
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters-2020.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/legacy.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/badware.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/privacy.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/resource-abuse.txt",
+    "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext&_=223428 ",
+    "https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/brave-social.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt",
+    "https://raw.githubusercontent.com/brave/adblock-lists/master/brave-unbreak.txt"]
+c.content.blocking.enabled = True
+c.content.blocking.hosts.lists = [
+    'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts'
+]
+c.content.blocking.method = 'auto'
+c.content.blocking.whitelist = []
 
 # Keybindings
 
