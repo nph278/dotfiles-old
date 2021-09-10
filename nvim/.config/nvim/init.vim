@@ -41,6 +41,7 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
   Plug 'pangloss/vim-javascript'
   Plug 'itchyny/lightline.vim'
   Plug 'cespare/vim-toml'
+  Plug 'mattn/emmet-vim'
 call plug#end()
 
 let g:coc_global_extensions = [
@@ -55,6 +56,7 @@ let g:coc_global_extensions = [
   \ 'coc-vimlsp',
   \ 'coc-toml',
   \ 'coc-python',
+  \ 'coc-emmet',
   \ ]
 
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
