@@ -22,7 +22,7 @@ startup = [
   "alias time = date format '%H:%M:%S'",
   "def lsd [] { ls | where type == Dir }",
   "def lsf [] { ls | where type == File }",
-  "def z [] { cd (fd --type d | fzf | str trim) }",
+  "def z [] { cd (build-string '~/' (fd --type d --base-directory ~ | fzf | str trim)) }",
   "def rr [] { exec (history | to md | fzf | str trim) }",
   "pfetch",
   "build-string 'Time is ' (ansi r) (date format '%H:%M:%S') (ansi reset) '\n'"
