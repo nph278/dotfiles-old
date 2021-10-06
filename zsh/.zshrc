@@ -31,7 +31,7 @@ preexec() { echo -ne '\e[5 q' ;}
 
 alias ls="ls --color"
 alias l="ls -la"
-alias vim="nvim"
+alias vim="neovide --multigrid"
 alias ga="git add -A"
 alias gc="git commit -m"
 alias gp="git push origin"
@@ -59,6 +59,10 @@ add() {
 
 del() {
   paru -R $1
+}
+
+search() {
+  paru -Ss $1
 }
 
 setopt AUTO_CD

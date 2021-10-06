@@ -44,7 +44,7 @@ window:
 
 background_opacity: 0.5
 shell:
-  program: nu
+  program: zsh
 
 cursor:
   style:
