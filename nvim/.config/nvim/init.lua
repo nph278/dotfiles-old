@@ -167,15 +167,15 @@ vim.g.coq_settings = {
 -- Keybindings
 
 -- Tabs
-vim.api.nvim_set_keymap('n', '1', '1gt', {})
-vim.api.nvim_set_keymap('n', '2', '2gt', {})
-vim.api.nvim_set_keymap('n', '3', '3gt', {})
-vim.api.nvim_set_keymap('n', '4', '4gt', {})
-vim.api.nvim_set_keymap('n', '5', '5gt', {})
-vim.api.nvim_set_keymap('n', '6', '6gt', {})
-vim.api.nvim_set_keymap('n', '7', '7gt', {})
-vim.api.nvim_set_keymap('n', '8', '8gt', {})
-vim.api.nvim_set_keymap('n', '9', '9gt', {})
+vim.api.nvim_set_keymap('n', '<A-1>', '1gt', {})
+vim.api.nvim_set_keymap('n', '<A-2>', '2gt', {})
+vim.api.nvim_set_keymap('n', '<A-3>', '3gt', {})
+vim.api.nvim_set_keymap('n', '<A-4>', '4gt', {})
+vim.api.nvim_set_keymap('n', '<A-5>', '5gt', {})
+vim.api.nvim_set_keymap('n', '<A-6>', '6gt', {})
+vim.api.nvim_set_keymap('n', '<A-7>', '7gt', {})
+vim.api.nvim_set_keymap('n', '<A-8>', '8gt', {})
+vim.api.nvim_set_keymap('n', '<A-9>', '9gt', {})
 
 -- Files
 vim.api.nvim_set_keymap('n', '<C-e>', ':CHADopen<CR>', {})
