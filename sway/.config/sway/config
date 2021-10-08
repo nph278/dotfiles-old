@@ -20,7 +20,7 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 
-set $bemenu_options = '--fn \'Fira Mono 11\' -b --tb \#61afef --tf \#282c34 --nf \#61afef --nb \#282c34 --sb \#61afef --sf \#282c34 --hb \#61afef --hf \#282c34 --scb \#282c34 --scf \#abb2bf --fb \#282c34 --ff \#abb2bf' 
+set $bemenu_options = '--fn \'JetBrains Mono 11\' --tb \#61afef --tf \#282c34 --nf \#61afef --nb \#282c34 --sb \#61afef --sf \#282c34 --hb \#61afef --hf \#282c34 --scb \#282c34 --scf \#abb2bf --fb \#282c34 --ff \#abb2bf' 
 
 set $menu bemenu-run '$bemenu_options'
 
@@ -226,9 +226,23 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 
+bar {
+    font "JetBrains Mono 10"
+    status_command while date +'%h %d -> %H %M %S'; do sleep 1; done
+    status_edge_padding 30
+    colors {
+        statusline #abb2bf
+        background #282c34
+        focused_workspace #282c34 #61afef #282c34
+        active_workspace #282c34 #e06c75 #282c34
+        inactive_workspace #282c34 #282c34 #abb2bf
+    }
+}
+
 font pango:Fira Mono Normal 11
 
 default_border none
 
-include /etc/sway/config.d/*
+gaps inner 3
 
+include /etc/sway/config.d/*
