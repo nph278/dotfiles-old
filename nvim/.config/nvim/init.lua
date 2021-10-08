@@ -33,6 +33,7 @@ Plug 'junegunn/fzf.vim'
 
 -- Navigation
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'justinmk/vim-sneak'
 
 -- Programming
 Plug 'jiangmiao/auto-pairs'
@@ -113,7 +114,7 @@ nvim_lsp.sumneko_lua.setup {
         -- Make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file("", true),
       },
-      -- Do not send telemetry data containing a randomized but unique identifier
+      -- ooo not send telemetry data containing a randomized but unique identifier
       telemetry = {
         enable = false,
       },
