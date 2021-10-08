@@ -6,4 +6,5 @@ export EDITOR=nvim
 eval $(ssh-agent -s)
 
 figlet "I lost 20000 dollats because we are number 1."
+sway
 
