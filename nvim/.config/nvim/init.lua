@@ -27,9 +27,11 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 Plug 'joshdick/onedark.vim'
 
 -- Files
+Plug ('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
 Plug 'kyazdani42/nvim-tree.lua'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-telescope/telescope.nvim'
+--Plug 'junegunn/fzf'
+--Plug 'junegunn/fzf.vim'
 
 -- Navigation
 Plug 'christoomey/vim-tmux-navigator'
@@ -47,6 +49,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug ('ms-jpq/coq_nvim', {branch = 'coq'})
 Plug ('ms-jpq/coq.artifacts', {branch = 'artifacts'})
 Plug ('ms-jpq/coq.thirdparty', {branch = '3p'})
+Plug 'nvim-lua/plenary.nvim'
 --Plug 'evanleck/vim-svelte', {'branch': 'main'}
 --Plug 'HerringtonDarkholme/yats.vim'
 --Plug 'pangloss/vim-javascript'
@@ -93,7 +96,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', 'g[', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', 'g]', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', 'f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
@@ -187,6 +189,15 @@ require'nvim-tree'.setup {
   }
 }
 
+require('telescope').setup({
+  defaults = {
+    layout_config = {
+      vertical = { width = 0.5 }
+    },
+    border = false
+  },
+})
+
 -- Keybindings
 
 -- Tabs
@@ -202,9 +213,12 @@ vim.api.nvim_set_keymap('n', '<A-9>', '9gt', {})
 
 -- Files
 vim.api.nvim_set_keymap('n', '<C-e>', ':NvimTreeToggle<CR>', {})
-vim.api.nvim_set_keymap('n', '<C-p>', ':FZF<CR>', {})
+vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<CR>', {})
+vim.api.nvim_set_keymap('n', '<space>co', ':Telescope git_commits<CR>', {})
+vim.api.nvim_set_keymap('n', '<space>br', ':Telescope git_branches<CR>', {})
+vim.api.nvim_set_keymap('n', '<space>fn', ':Telescope lsp_document_symbols<CR>', {})
+vim.api.nvim_set_keymap('n', 'gr', ':Telescope lsp_references<CR>', {})
+vim.api.nvim_set_keymap('n', '<space>di', ':Telescope lsp_workspace_diagnostics<CR>', {})
 
 -- Programming
 vim.api.nvim_set_keymap('v', '+', '<plug>NERDCommenterToggle<CR>', {})
-vim.api.nvim_set_keymap('n', '+', '<plug>NERDCommenterToggle<CR>', {})
-
