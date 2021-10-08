@@ -239,7 +239,7 @@ bar {
     }
 }
 
-font pango:Fira Mono Normal 11
+font pango:JetBrains Mono Normal 11
 
 default_border none
 
