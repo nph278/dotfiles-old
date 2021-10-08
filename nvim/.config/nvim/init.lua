@@ -160,7 +160,7 @@ end
 vim.g.coq_settings = {
   auto_start = true,
   keymap = {
-    jump_to_mark = 't'
+    jump_to_mark = '<C-t>'
   }
 }
 
