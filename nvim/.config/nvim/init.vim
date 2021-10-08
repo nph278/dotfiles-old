@@ -12,8 +12,7 @@ set updatetime=300
 set noshowmode
 set noruler
 set noshowcmd
-set guifont=Fira\ Code:h10
-
+set guifont=JetBrains\ Mono:h10
 syntax on
 
 if (has("nvim"))
@@ -31,58 +30,144 @@ endif
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 	Plug 'joshdick/onedark.vim'
 	Plug 'preservim/nerdtree'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'evanleck/vim-svelte', {'branch': 'main'}
+  "Plug 'evanleck/vim-svelte', {'branch': 'main'}
   Plug 'christoomey/vim-tmux-navigator'
-  Plug 'HerringtonDarkholme/yats.vim'
+  "Plug 'HerringtonDarkholme/yats.vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'scrooloose/nerdcommenter'
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
-  Plug 'pangloss/vim-javascript'
+  "Plug 'pangloss/vim-javascript'
   Plug 'itchyny/lightline.vim'
   Plug 'cespare/vim-toml'
   Plug 'mattn/emmet-vim'
+
+  Plug 'neovim/nvim-lspconfig'
+  "Plug 'glepnir/lspsaga.nvim'
+
+  Plug 'hrsh7th/nvim-cmp'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'saadparwaiz1/cmp_luasnip'
+  Plug 'L3MON4D3/luasnip'
+  Plug 'glepnir/lspsaga.nvim'
+  Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
-let g:coc_global_extensions = [
-  \ 'coc-snippets',
-  \ 'coc-pairs',
-  \ 'coc-prettier', 
-  \ 'coc-json', 
-  \ 'coc-sh',
-  \ 'coc-rls',
-  \ 'coc-clangd',
-  \ 'coc-git',
-  \ 'coc-vimlsp',
-  \ 'coc-toml',
-  \ 'coc-python',
-  \ 'coc-emmet',
-  \ ]
+set completeopt="menuone,noselect"
 
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+lua << EOF
+local nvim_lsp = require('lspconfig')
+nvim_lsp.rust_analyzer.setup{}
+
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+  -- Enable completion triggered by <c-x><c-o>
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
+
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', 'g[', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', 'g]', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+end
+
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    -- on_attach = my_custom_on_attach,
+    capabilities = capabilities,
+  }
+end
+
+-- luasnip setup
+local luasnip = require 'luasnip'
+
+-- nvim-cmp setup
+local cmp = require 'cmp'
+cmp.setup {
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+  mapping = {
+    ['<A-j>'] = cmp.mapping.scroll_docs(-4),
+    ['<A-k>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<CR>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
+    ['<Tab>'] = function(fallback)
+      if vim.fn.pumvisible() == 1 then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
+      elseif luasnip.expand_or_jumpable() then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+      else
+        fallback()
+      end
+    end,
+    ['<S-Tab>'] = function(fallback)
+      if vim.fn.pumvisible() == 1 then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-p>', true, true, true), 'n')
+      elseif luasnip.jumpable(-1) then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
+      else
+        fallback()
+      end
+    end,
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+  },
+}
+
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+local servers = { 'rust_analyzer' }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+end
+
+local saga = require 'lspsaga'
+saga.init_lsp_saga()
+EOF
+
+nmap <F2> :Lspsaga rename<CR>
+nmap K :Lspsaga hover_doc<CR>
+nmap ga :Lspsaga code_action<CR>
+nmap gt :Lspsaga signature_help<CR>
 
 colorscheme onedark
 
 vmap + <plug>NERDCommenterToggle
 nmap + <plug>NERDCommenterToggle
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-" Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
-
-nmap f :Format<CR>
 
 " Start NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
@@ -91,42 +176,23 @@ autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 nnoremap <C-e> :NERDTreeToggle<CR>
 nnoremap <C-p> :FZF<CR>
 
-nmap <F2> <Plug>(coc-rename)
-
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-nnoremap <A-1> 1gt
-nnoremap <A-2> 2gt
-nnoremap <A-3> 3gt
-nnoremap <A-4> 4gt
-nnoremap <A-5> 5gt
-nnoremap <A-6> 6gt
-nnoremap <A-7> 7gt
-nnoremap <A-8> 8gt
-nnoremap <A-9> 9gt
-
-inoremap <silent><expr> <c-space> coc#refresh()
+nnoremap 1 1gt
+nnoremap 2 2gt
+nnoremap 3 3gt
+nnoremap 4 4gt
+nnoremap 5 5gt
+nnoremap 6 6gt
+nnoremap 7 7gt
+nnoremap 8 8gt
+nnoremap 9 9gt
 
 let g:lightline = {
 	\ 'colorscheme': 'one',
 	\ 'active': {
 	\   'left': [ [ 'mode', 'paste' ],
-	\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-	\ },
-	\ 'component_function': {
-	\   'cocstatus': 'coc#status'
-	\ },
+	\             [ 'readonly', 'filename', 'modified' ] ]
+	\ }
 	\ }
 
-autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 let g:user_emmet_leader_key='<C-a>'
-
 

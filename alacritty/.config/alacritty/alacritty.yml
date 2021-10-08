@@ -1,18 +1,18 @@
 font:
   normal:
-    family: Fira Mono
+    family: JetBrains Mono
     style: Regular
 
   bold:
-    family: Fira Mono
+    family: JetBrains Mono
     style: Bold
 
   italic:
-    family: Fira Mono
+    family: JetBrains Mono
     style: Italic
 
   bold_italic:
-    family: Fira Code Nerd Font
+    family: JetBrains Mono
     style: Bold Italic
 
   size: 11
@@ -42,7 +42,7 @@ window:
     x: 5
     y: 5
 
-background_opacity: 0.5
+#background_opacity: 0.5
 shell:
   program: zsh
 
