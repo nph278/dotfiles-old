@@ -27,13 +27,12 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 Plug 'joshdick/onedark.vim'
 
 -- Files
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug ('ms-jpq/chadtree', {branch = 'chad', ['do'] = 'python3 -m chadtree deps'})
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
 -- Navigation
---Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
 
 -- Programming
 Plug 'jiangmiao/auto-pairs'
@@ -158,6 +157,13 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+vim.g.coq_settings = {
+  auto_start = true,
+  keymap = {
+    jump_to_mark = 't'
+  }
+}
+
 -- Keybindings
 
 -- Tabs
@@ -172,7 +178,7 @@ vim.api.nvim_set_keymap('n', '8', '8gt', {})
 vim.api.nvim_set_keymap('n', '9', '9gt', {})
 
 -- Files
-vim.api.nvim_set_keymap('n', '<C-e>', ':NERDTreeToggle<CR>', {})
+vim.api.nvim_set_keymap('n', '<C-e>', ':CHADopen<CR>', {})
 vim.api.nvim_set_keymap('n', '<C-p>', ':FZF<CR>', {})
 
 -- Programming
