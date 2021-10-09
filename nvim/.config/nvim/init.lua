@@ -50,6 +50,7 @@ Plug ('ms-jpq/coq_nvim', {branch = 'coq'})
 Plug ('ms-jpq/coq.artifacts', {branch = 'artifacts'})
 Plug ('ms-jpq/coq.thirdparty', {branch = '3p'})
 Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
 --Plug 'evanleck/vim-svelte', {'branch': 'main'}
 --Plug 'HerringtonDarkholme/yats.vim'
 --Plug 'pangloss/vim-javascript'
@@ -189,10 +190,28 @@ require'nvim-tree'.setup {
   }
 }
 
+require('nvim-treesitter').setup {
+  highlight = {
+    enable = true,
+    disable = {}
+  },
+  indent = {
+    enable = false,
+    disable = {}
+  },
+  ensure_installed = {
+    "toml",
+    "rust"
+  }
+}
+
 require('telescope').setup({
   defaults = {
     layout_config = {
       vertical = { width = 0.5 }
+    },
+    preview = {
+      treesitter = true
     },
     border = false
   },
