@@ -33,7 +33,7 @@ preexec() { echo -ne '\e[5 q' ;}
 
 alias ls="ls --color"
 alias l="ls -la"
-alias vim="neovide --multigrid"
+alias vim="flatpak run io.neovim.nvim -u ~/.config/nvim/init.lua"
 alias ga="git add -A"
 alias gc="git commit -m"
 alias gp="git push origin"
@@ -75,8 +75,7 @@ bindkey -v
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-if [[ $TERM == 'alacritty' ]] &&
-  [[ -f /usr/bin/pfetch ]]; then
+if [[ $TERM == 'alacritty' ]]; then
   pfetch
 fi
 

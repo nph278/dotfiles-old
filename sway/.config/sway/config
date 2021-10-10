@@ -34,7 +34,7 @@ set $kill kill -15 "$(ps -u $USER -o pid,%mem,comm | sort -b -k2 -r | sed -n '1!
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/.wallpaper.png fill
+output * bg /usr/share/backgrounds/default.png fill
 #
 # Example configuration:
 #
@@ -94,7 +94,7 @@ input * {
     bindsym $mod+Control+l exec "swaylock -f -c 000000"
 
     # Qute
-    bindsym $mod+q exec "qutebrowser"
+    bindsym $mod+q exec "flatpak run org.qutebrowser.qutebrowser"
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -243,6 +243,6 @@ font pango:JetBrains Mono Normal 11
 
 default_border none
 
-gaps inner 3
+gaps inner 5
 
 include /etc/sway/config.d/*
