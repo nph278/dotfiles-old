@@ -16,6 +16,7 @@ vim.o.showmode = false
 vim.o.ruler = false
 vim.o.showcmd = false
 vim.o.completeopt = 'menu,menuone,noselect,preview'
+vim.o.relativenumber = true
 
 -- Plugins
 
