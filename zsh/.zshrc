@@ -67,6 +67,10 @@ search() {
   paru -Ss $1
 }
 
+fl() {
+  flatpak run $1 > /dev/null & disown
+}
+
 setopt AUTO_CD
 setopt PROMPT_SUBST
 
@@ -76,6 +80,6 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 if [[ $TERM == 'alacritty' ]]; then
-  pfetch
+  ~/.local/bin/pfetch | lolcat -h 1
 fi
 
