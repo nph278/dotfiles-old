@@ -33,7 +33,6 @@ preexec() { echo -ne '\e[5 q' ;}
 
 alias ls="ls --color"
 alias l="ls -la"
-alias vim="flatpak run io.neovim.nvim -u ~/.config/nvim/init.lua"
 alias ga="git add -A"
 alias gc="git commit -m"
 alias gp="git push origin"
@@ -71,6 +70,10 @@ fl() {
   flatpak run $1 > /dev/null & disown
 }
 
+vim() {
+  flatpak run io.neovim.nvim -u ~/.config/nvim/init.lua $1 && zle-keymap-select
+}
+
 setopt AUTO_CD
 setopt PROMPT_SUBST
 
@@ -80,6 +83,6 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 if [[ $TERM == 'alacritty' ]]; then
-  ~/.local/bin/pfetch | lolcat -h 1
+  pfetch | lolcat -h 1
 fi
 
