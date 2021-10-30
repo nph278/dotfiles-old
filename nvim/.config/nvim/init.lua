@@ -26,7 +26,7 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.config/nvim/plugged')
 
 -- Theming
-Plug 'joshdick/onedark.vim'
+Plug 'rmehri01/onenord.nvim'
 
 -- Files
 Plug ('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
@@ -67,12 +67,28 @@ vim.call('plug#end')
 
 
 -- Colortheme
-vim.cmd('colorscheme onedark')
+require('onenord').setup({
+  borders = true, -- Split window borders
+  italics = {
+    comments = true, -- Italic comments
+    strings = false, -- Italic strings
+    keywords = true, -- Italic keywords
+    functions = false, -- Italic functions
+    variables = false, -- Italic variables
+  },
+  disable = {
+    background = false, -- Disable setting the background color
+    cursorline = false, -- Disable the cursorline
+    eob_lines = true, -- Hide the end-of-buffer lines
+  },
+})
+
+vim.cmd('colorscheme onenord')
 
 local lualine = require('lualine')
 lualine.setup{
   options = {
-    theme = 'onedark',
+    theme = 'onenord',
     component_separators = {'|', '|'}
   }
 }

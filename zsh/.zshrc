@@ -83,6 +83,6 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 if [[ $TERM == 'alacritty' ]]; then
-  pfetch | lolcat -h 1
+  ~/.local/bin/pfetch | lolcat -h 1
 fi
 
