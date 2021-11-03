@@ -71,7 +71,7 @@ fl() {
 }
 
 vim() {
-  flatpak run io.neovim.nvim -u ~/.config/nvim/init.lua $1 && zle-keymap-select
+  nvim $1 && zle-keymap-select
 }
 
 setopt AUTO_CD

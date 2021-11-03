@@ -26,7 +26,7 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.config/nvim/plugged')
 
 -- Theming
-Plug 'rmehri01/onenord.nvim'
+Plug 'joshdick/onedark.vim'
 
 -- Files
 Plug ('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
@@ -47,7 +47,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'cespare/vim-toml'
 Plug 'mattn/emmet-vim'
 Plug 'hoob3rt/lualine.nvim'
-Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug ('ms-jpq/coq_nvim', {branch = 'coq'})
 Plug ('ms-jpq/coq.artifacts', {branch = 'artifacts'})
 Plug ('ms-jpq/coq.thirdparty', {branch = '3p'})
@@ -67,28 +67,12 @@ vim.call('plug#end')
 
 
 -- Colortheme
-require('onenord').setup({
-  borders = true, -- Split window borders
-  italics = {
-    comments = true, -- Italic comments
-    strings = false, -- Italic strings
-    keywords = true, -- Italic keywords
-    functions = false, -- Italic functions
-    variables = false, -- Italic variables
-  },
-  disable = {
-    background = false, -- Disable setting the background color
-    cursorline = false, -- Disable the cursorline
-    eob_lines = true, -- Hide the end-of-buffer lines
-  },
-})
-
-vim.cmd('colorscheme onenord')
+vim.cmd('colorscheme onedark')
 
 local lualine = require('lualine')
 lualine.setup{
   options = {
-    theme = 'onenord',
+    theme = 'onedark',
     component_separators = {'|', '|'}
   }
 }
@@ -97,7 +81,7 @@ lualine.setup{
 
 local nvim_lsp = require('lspconfig')
 
-nvim_lsp.rust_analyzer.setup{}
+nvim_lsp.rls.setup{}
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -124,7 +108,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'rust_analyzer' }
+local servers = { 'rls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
