@@ -71,7 +71,11 @@ fl() {
 }
 
 vim() {
-  nvim $1 && zle-keymap-select
+  toolbox run -c dev nvim $1 && zle-keymap-select
+}
+
+dev() {
+  toolbox run -c dev zsh
 }
 
 setopt AUTO_CD

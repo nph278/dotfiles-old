@@ -48,6 +48,7 @@ Plug 'cespare/vim-toml'
 Plug 'mattn/emmet-vim'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'yamatsum/nvim-nonicons'
 Plug ('ms-jpq/coq_nvim', {branch = 'coq'})
 Plug ('ms-jpq/coq.artifacts', {branch = 'artifacts'})
 Plug ('ms-jpq/coq.thirdparty', {branch = '3p'})
@@ -81,7 +82,7 @@ lualine.setup{
 
 local nvim_lsp = require('lspconfig')
 
-nvim_lsp.rls.setup{}
+nvim_lsp.rust_analyzer.setup{}
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -108,7 +109,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'rls' }
+local servers = { 'rust_analyzer' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
