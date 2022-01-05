@@ -72,12 +72,6 @@ alias dev="toolbox run -c dev zsh"
 
 # Functions
 
-clean() {
-  while pkgs=$(paru -Qtd) do
-    paru -R $(paru -Qtd | awk '{print $1}' | tr '\n' ' ')
-  done
-}
-
 fl() {
   flatpak run $1 > /dev/null & disown
 }
