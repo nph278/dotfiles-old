@@ -10,13 +10,13 @@ c.url.searchengines = {
 
 # Fonts
 
-c.fonts.default_family = "Fira Mono"
+c.fonts.default_family = "monospace"
 c.fonts.web.family.cursive = "Noto Sans"
 c.fonts.web.family.fantasy = "Noto Sans"
-c.fonts.web.family.fixed = "Fira Mono"
+c.fonts.web.family.fixed = "monospace"
 c.fonts.web.family.sans_serif = "Noto Sans"
-c.fonts.web.family.serif = "Noto Sans"
-c.fonts.web.family.standard = "Noto Sans"
+c.fonts.web.family.serif = "monospace"
+c.fonts.web.family.standard = "monospace"
 
 # Colors
 
@@ -159,8 +159,6 @@ c.auto_save.session = True
 
 c.bindings.commands = {
     "normal": {
-        "J": "tab-prev",
-        "K": "tab-next",
         "M": "hint links spawn mpv {hint-url}",
         "Z": "hint links spawn alacritty --command youtube-dl {hint-url}"
     }

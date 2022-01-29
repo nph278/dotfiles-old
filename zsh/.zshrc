@@ -83,7 +83,11 @@ update() {
 
 setup-dev() {
   toolbox create dev
-  toolbox run -c dev "sudo dnf install neovim rust rust-src cargo rustfmt"
+  toolbox run -c dev "sudo dnf install neovim rust rust-src cargo rustfmt trash-cli"
+}
+
+up-shutdown() {
+  update && sudo shutdown now
 }
 
 # Options
